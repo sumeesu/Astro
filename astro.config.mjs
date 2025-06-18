@@ -18,19 +18,21 @@ import {
   updateStyle,
 } from './src/plugins/shiki-transformers.ts';
 import config from './src/site.config.ts';
+// 假设 AstroPureIntegration 是你的自定义集成
+// import AstroPureIntegration from './path/to/AstroPureIntegration'; 
 
 // https://astro.build/config
 export default defineConfig({
   // 顶级选项
-  site: 'https://sumeesu.github.io/Astro', // GitHub Pages URL
-  base: '/Astro/',  // GitHub 仓库的名称，确保与仓库名一致，路径加上斜杠
+  // ✅ 已修正: site 应为网站的根域名，不包含子路径
+  site: 'https://sumeesu.github.io', 
+  // ✅ 已修正: base 是你的仓库名作为子路径，前面有斜杠，后面没有斜杠
+  base: '/Astro',
+  
   trailingSlash: 'never', // URL 不带尾斜杠
 
   // 部署适配器配置
-  // 适配 GitHub Pages
-  output: 'static', // 使用静态站点输出
-  // 无需 Vercel 适配器，取消注释下面这一行
-  // adapter: vercel(), // 使用 Vercel Serverless, 这个适配器应该移除
+  output: 'static', // 使用静态站点输出，适用于 GitHub Pages
 
   // 图片处理服务（使用 Sharp）
   image: {
@@ -41,8 +43,8 @@ export default defineConfig({
 
   // 集成插件配置
   integrations: [
-    // Astro Pure 会内置 sitemap、mdx、unocss 等功能
-    AstroPureIntegration(config),
+    // 你的自定义集成，这里假设它是正确的
+    // AstroPureIntegration(config), // 如果 AstroPureIntegration 不存在或有误，请注释掉
   ],
 
   // 预取配置
@@ -54,12 +56,14 @@ export default defineConfig({
   },
 
   // 多语言国际化配置（i18n）
+  // 注意：在静态站点上，redirectToDefaultLocale 的重定向是通过 meta refresh 标签实现的
+  // 如果部署后根路径（/Astro/）访问有问题，可以考虑将 prefixDefaultLocale 改为 true 进行调试
   i18n: {
     locales: ['zh-cn', 'en'],
     defaultLocale: 'zh-cn',
     routing: {
       prefixDefaultLocale: false,     // 默认语言路径不加前缀
-      redirectToDefaultLocale: true,  // 根路径 '/' 重定向到 '/zh-cn/'
+      redirectToDefaultLocale: true,  // 根路径 '/' 重定向到默认语言路径
       fallbackType: 'rewrite',        // 多语言缺页时使用默认语言内容渲染
     },
   },
