@@ -12,39 +12,38 @@ import wechat from '@/assets/wechat-qrcode.jpg'
 import config from '@/site-config'
 
 const headings = [
-  { depth: 2, slug: 'theme', text: 'Theme' },
-  { depth: 2, slug: 'programs', text: 'Programs' },
-  { depth: 2, slug: 'learnings', text: 'Learnings' },
-  { depth: 2, slug: 'others', text: 'Others' },
-  { depth: 2, slug: 'gpg-signature', text: 'GPG Signature' },
-  { depth: 2, slug: 'sponsorship', text: 'Sponsorship' }
+  { depth: 2, slug: 'theme', text: '主题项目' },
+  { depth: 2, slug: 'programs', text: '实用工具' },
+  { depth: 2, slug: 'learnings', text: '学习笔记' },
+  { depth: 2, slug: 'others', text: '其他项目' },
+  { depth: 2, slug: 'gpg-signature', text: 'GPG签名' },
+  { depth: 2, slug: 'sponsorship', text: '赞助支持' }
 ]
 ---
 
-<PageLayout title='Projects' {headings} info={{ slug: '/projects', hideComment: true }}>
-  <p>Github Activities:</p>
+<PageLayout title='项目展示' {headings} info={{ slug: '/projects', hideComment: true }}>
+  <p>GitHub 活动记录:</p>
   <p>
     <Image
       src='https://ghchart.rshah.org/659eb9/cworld1'
-      alt='github activities'
+      alt='GitHub 贡献图表'
       inferSize
       loading='lazy'
     />
   </p>
   <p>
-    If you think it would be useful or interesting to collaborate on a project, you can donate to
-    support my work or contact me to discuss a project.
+    如果您觉得某个项目值得合作或有兴趣参与开发，可以通过赞助支持我的工作，或直接联系我讨论项目细节。
   </p>
-  <Button title='Checkout sponsorship' class='w-fit' href='#sponsorship'>
+  <Button title='查看赞助方式' class='w-fit' href='#sponsorship'>
     <Icon class='size-5' name='receive-money' slot='before' />
   </Button>
 
-  <h2 id='theme'>Theme</h2>
+  <h2 id='theme'>主题项目</h2>
   <ProjectSection
     project={[
       {
-        name: '🍭 Astro-theme-pure',
-        description: 'A simple, clean but powerful blog theme build by astro.',
+        name: '🍭 Astro 纯净主题',
+        description: '基于 Astro 构建的简洁而强大的博客主题',
         links: [
           { type: 'github', href: 'https://github.com/cworld1/astro-theme-pure' },
           { type: 'site', href: 'https://github.com/cworld1/astro-theme-pure' },
@@ -57,12 +56,12 @@ const headings = [
     ]}
   />
 
-  <h2 id='programs'>Programs</h2>
+  <h2 id='programs'>实用工具</h2>
   <ProjectSection
     project={[
       {
-        name: '🤖 Arknights Telegram Bot',
-        description: 'Telegram Bot for Arknights',
+        name: '🤖 明日方舟 Telegram 机器人',
+        description: '专为明日方舟玩家设计的 Telegram 机器人',
         links: [
           { type: 'github', href: 'https://github.com/IJNKAWAKAZE/arknights_bot' },
           { type: 'site', href: 'https://t.me/PtiIopsis_bot' },
@@ -73,8 +72,8 @@ const headings = [
         ]
       },
       {
-        name: '💄 PKU Art',
-        description: 'A script to beautify pku course website',
+        name: '💄 北大选课美化',
+        description: '北大选课系统界面美化脚本',
         links: [
           { type: 'github', href: 'https://github.com/zhuozhiyongde/pku-art' },
           { type: 'site', href: 'https://github.com/zhuozhiyongde/pku-art' },
@@ -83,17 +82,17 @@ const headings = [
       }
     ]}
   />
-  <Collapse title='Some old projects'>
+  <Collapse title='历史项目'>
     <ProjectSection
       project={[
         {
-          name: 'Search Switcher',
-          description: 'Add links to each other in search engines',
+          name: '搜索引擎切换器',
+          description: '在不同搜索引擎间快速切换的工具',
           links: [{ type: 'github', href: 'https://github.com/cworld1/search-switcher' }]
         },
         {
-          name: 'Pure Baidu',
-          description: 'Baidu search page beautification module',
+          name: '百度纯净版',
+          description: '百度搜索页面美化模块',
           links: [
             { type: 'doc', href: 'https://cworld0.com/blog/pure-baidu' },
             { type: 'site', href: 'https://userstyles.org/styles/173673/pure' }
@@ -103,18 +102,18 @@ const headings = [
     />
   </Collapse>
 
-  <h2 id='learnings'>Learnings</h2>
+  <h2 id='learnings'>学习笔记</h2>
   <ProjectSection
     class='my-2'
     project={[
       {
-        name: 'Rust Learning',
-        description: 'Some notes and code about CWorld learning Rust',
+        name: 'Rust 学习笔记',
+        description: '学习 Rust 编程语言的笔记和代码示例',
         links: [{ type: 'github', href: 'https://github.com/cworld1/rust-learning' }]
       },
       {
-        name: 'CS 213 Learning',
-        description: 'Notes, code and experiences for Introduction to Computer Systems course',
+        name: '计算机系统导论',
+        description: '北大计算机系统导论课程的学习资料',
         links: [
           {
             type: 'github',
@@ -125,40 +124,40 @@ const headings = [
     ]}
   />
 
-  <h2 id='others'>Others</h2>
+  <h2 id='others'>其他项目</h2>
   <ProjectSection
     project={[
       {
-        name: 'CWorld',
-        description: "CWorld's Github",
+        name: 'CWorld 主仓库',
+        description: "我的 GitHub 主账号",
         links: [{ type: 'github', href: 'https://github.com/cworld1' }]
       },
       {
-        name: 'Arthals',
-        description: 'Arthals Github',
+        name: 'Arthals 仓库',
+        description: '我的 GitHub 副账号',
         links: [{ type: 'github', href: 'https://github.com/zhuozhiyongde' }]
       }
     ]}
   />
 
-  <!-- gpg signature -->
-  <h2 id='gpg-signature'>GPG Signature</h2>
+  <!-- gpg签名 -->
+  <h2 id='gpg-signature'>GPG 签名</h2>
   <p>
-    You can verify the authenticity of the files I signed by checking the GPG signature. My GPG key
-    is <code>APTX4869</code>, and you can find it on the opengpg key servers or download from it.
+    您可以通过检查 GPG 签名来验证我签署文件的真实性。我的 GPG 密钥 ID 是
+    <code>APTX4869</code>，您可以在 OpenPGP 密钥服务器上找到或下载它。
   </p>
-  <Button href='https://keys.openpgp.org/search?q=APTX4869' title='Checkout my key' target='_blank'>
+  <Button href='https://keys.openpgp.org/search?q=APTX4869' title='查看我的密钥' target='_blank'>
     <KeyIcon class='size-5' slot='before' />
   </Button>
 
-  <!-- sponsorship -->
-  <h2 id='sponsorship'>Sponsorship</h2>
-  <p>Please leave a message or contact me proactively after sponsorship.</p>
+  <!-- 赞助支持 -->
+  <h2 id='sponsorship'>赞助支持</h2>
+  <p>赞助后请留言或主动联系我告知您的赞助信息。</p>
   <div class='flex flex-col justify-center gap-4 sm:flex-row'>
     {
       [
-        { name: 'WeChat', icon: 'wechat-pay', image: wechat },
-        { name: 'Alipay', icon: 'alipay', image: alipay }
+        { name: '微信支付', icon: 'wechat-pay', image: wechat },
+        { name: '支付宝', icon: 'alipay', image: alipay }
       ].map((item) => (
         <div class='group relative justify-center overflow-hidden rounded-xl border bg-white'>
           <div class='absolute bottom-0 end-0 start-0 top-0 flex items-center justify-center transition-opacity group-hover:opacity-0'>
@@ -174,13 +173,13 @@ const headings = [
       ))
     }
   </div>
-  <p>Thanks to the following sponsors:</p>
+  <p>特别感谢以下赞助者:</p>
   <Sponsors
     sponsors={[
       { name: 'C*a（酷安@暴走の蜗牛）', amount: '2.00', date: '2019-07-02' },
       { name: '华雄(QQ：1300****71)', amount: '5.00', date: '2019-12-30' },
       { name: '◌(QQ：1934****45)', amount: '3.00', date: '2019-12-30' },
-      { name: 'Anonymous', amount: '20.00', date: '2022-04-06' }
+      { name: '匿名用户', amount: '20.00', date: '2022-04-06' }
     ]}
   />
 </PageLayout>

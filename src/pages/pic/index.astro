@@ -1,0 +1,97 @@
+---
+import Layout from '@/layouts/CommonPage.astro'
+
+const featured = [
+  { title: '你修不修？',   cover: 'https://invisible.school/content/images/size/w800/2023/12/repair-or-not.png',   href: '/posts/1' },
+  { title: '蘑菇奇图',     cover: '/img/mushroom.jpg', href: '/posts/2' },
+  { title: '只有我不会老的房间', cover: '/img/room.jpg', href: '/posts/3' },
+  { title: '不如回家种玉米', cover: '/img/farm.jpg',   href: '/posts/4' }
+]
+
+const notes = [
+  { title: '大脚怪的形状', tags: ['札记'],  cover: '/img/bigfoot.jpg', span: 2 },
+  { title: '手物民族志',   tags: ['摘抄'],  cover: '/img/ethno.jpg',   span: 1 },
+  { title: '与水共生',     tags: ['读书'],  cover: '/img/water.jpg',   span: 1 },
+  { title: '母云与云羽搏我威旗', tags: ['札记'], cover: '/img/cloud.jpg', span: 1 },
+  { title: '玩耍未来学',   tags: ['摘抄'],  cover: '/img/future.jpg',  span: 2 },
+  { title: '一个字某系的存在潜流', tags: ['读书'], cover: '/img/artifact.jpg', span: 1 }
+]
+---
+
+<!-- 把整体文字设为深灰色，背景设为白色 -->
+<Layout title="Home" class="bg-white text-gray-900">
+
+  <!-- HERO ***************************************************** -->
+  <section class="mx-auto max-w-7xl px-4 pt-28">
+    <h1 class="font-extrabold text-gray-900 text-4xl sm:text-6xl lg:text-7xl leading-tight">
+      在潮湿的地面和动荡的空气中同样敏锐。
+    </h1>
+    <p class="mt-4 text-sm text-gray-500">吉利安·罗斯《爱的工作》</p>
+
+    <a href="#newsletter"
+       class="mt-8 inline-block rounded-full bg-gray-900 px-6 py-2 text-sm font-semibold
+              text-white transition hover:bg-gray-800">
+      订阅摘选
+    </a>
+  </section>
+
+  <!-- FEATURED POSTS ******************************************* -->
+  <section class="mx-auto mt-20 max-w-7xl px-4">
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+      {featured.map(p => (
+        <a href={p.href}
+           class="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-white shadow">
+          <img src={p.cover} alt={p.title} loading="lazy" decoding="async"
+               class="h-full w-full object-cover transition duration-300 group-hover:scale-105" />
+          <!-- ★ 底部白底条，文字深灰 ★ -->
+          <span class="absolute inset-x-0 bottom-0 z-10
+                       bg-white/90 p-4 text-gray-900 text-lg font-medium">
+            {p.title}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- NOTES / MASONRY ****************************************** -->
+  <section class="mx-auto mt-32 max-w-7xl px-4" id="notes">
+    <h2 class="text-3xl font-bold mb-10">提笔忘字</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[8px] gap-6">
+      {notes.map(n => (
+        <article class="relative overflow-hidden rounded-2xl shadow"
+                 style={`grid-row: span ${n.span * 20} / span ${n.span * 20}`}>
+          <img src={n.cover} alt={n.title} loading="lazy" decoding="async"
+               class="h-full w-full object-cover" />
+          <!-- ★ 改成白底半透文字条 ★ -->
+          <div class="absolute inset-0 bg-white/60 p-4 text-gray-900 flex flex-col justify-end">
+            <p class="text-base font-semibold">{n.title}</p>
+            <p class="mt-1 text-xs text-gray-600">{n.tags.join(', ')}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <button class="mx-auto mt-10 block rounded-full bg-gray-900 px-6 py-2
+                   text-white text-sm hover:bg-gray-800">
+      载入更多
+    </button>
+  </section>
+
+  <!-- NEWSLETTER *********************************************** -->
+  <section id="newsletter" class="mx-auto mt-40 max-w-3xl px-4">
+    <h2 class="text-3xl font-bold mb-6">失败的小说家都在学习社会学</h2>
+    <form class="flex flex-col sm:flex-row gap-4">
+      <input type="email" required placeholder="输入邮箱地址"
+             class="flex-1 rounded-full bg-gray-100 px-4 py-3 text-sm
+                    placeholder:text-gray-400 focus:outline-none focus:ring-2
+                    focus:ring-gray-900/40" />
+      <button type="submit"
+              class="rounded-full bg-gray-900 px-6 py-3 text-sm font-semibold
+                     text-white transition hover:bg-gray-800">
+        订阅
+      </button>
+    </form>
+  </section>
+
+</Layout>

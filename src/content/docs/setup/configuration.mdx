@@ -1,61 +1,61 @@
 ---
-title: 'Configuration'
-description: 'Configuration files'
+title: '配置'
+description: '配置文件'
 order: 4
 ---
 
-## Theme Configuration
+## 主题配置
 
-File: `src/site.config.ts`
+文件: `src/site.config.ts`
 
-pending update...
+待更新...
 
-## Astro Configuration
+## Astro 配置
 
-File: `astro.config.mjs`
+文件: `astro.config.mjs`
 
-You can configure it to change deployment methods, add rehype & remark plugins, and more.
+您可以配置它以更改部署方法、添加 rehype 和 remark 插件等。
 
-Read more about Astro configuration [here](https://docs.astro.build/en/guides/configuring-astro/).
+了解更多关于 Astro 配置的信息[请点击这里](https://docs.astro.build/en/guides/configuring-astro/)。
 
-## ESLint Configuration
+## ESLint 配置
 
-File: `eslint.config.mjs`
+文件: `eslint.config.mjs`
 
-You can configure ESLint to change rules and security checks.
+您可以配置 ESLint 以更改规则和安全检查。
 
-Read more about ESLint configuration [here](https://eslint.org/docs/latest/use/configure/configuration-files).
+了解更多关于 ESLint 配置的信息[请点击这里](https://eslint.org/docs/latest/use/configure/configuration-files)。
 
-## Prettier Configuration
+## Prettier 配置
 
-File: `prettier.config.mjs`
+文件: `prettier.config.mjs`
 
-You can configure Prettier to change code formatting rules, this can change your experience using package command `format` and extension support for your favorite IDE.
+您可以配置 Prettier 以更改代码格式化规则，这可以改变您使用包命令 `format` 和您喜欢的 IDE 扩展支持的体验。
 
-Options are available [here](https://prettier.io/docs/en/options).
+可用选项[请点击这里](https://prettier.io/docs/en/options)。
 
-## UnoCSS Configuration
+## UnoCSS 配置
 
-File: `uno.config.ts`
+文件: `uno.config.ts`
 
-It is a utility-first CSS framework building custom designs. Theme also uses its preset `typography` to make typesettings (checkout [Other Integrations#`@unocss/preset-typography`](/docs/integrations/others#unocsspreset-typography) for more info).
+这是一个实用优先的 CSS 框架，用于构建自定义设计。主题还使用其预设 `typography` 进行排版设置（查看[其他集成#`@unocss/preset-typography`](/docs/integrations/others#unocsspreset-typography) 了解更多信息）。
 
-Get to know more:
+了解更多：
 
-- [UnoCSS: Typography preset](https://unocss.dev/presets/typography)
-- [UnoCSS: Astro Integration](https://unocss.dev/integrations/astro)
-- [UnoCSS: Configuring UnoCSS](https://unocss.dev/config)
+- [UnoCSS: 排版预设](https://unocss.dev/presets/typography)
+- [UnoCSS: Astro 集成](https://unocss.dev/integrations/astro)
+- [UnoCSS: 配置 UnoCSS](https://unocss.dev/config)
 
-And you can also customize the theme default UnoCSS palette by modifying the CSS file at `src/assets/styles/app.css`. For example, if you want to change the default theme color, you can modify the following code:
+您还可以通过修改位于 `src/assets/styles/app.css` 的 CSS 文件来自定义主题默认的 UnoCSS 调色板。例如，如果您想更改默认主题颜色，可以修改以下代码：
 
 ```css title="src/assets/styles/app.css"
 :root {
   /* ... */
   --primary: 200 29% 45%; /* [!code --] */
-  --primary: <Your favorite color using raw hsl>; /* [!code ++] */
+  --primary: <您喜欢的颜色，使用原始 hsl 值>; /* [!code ++] */
 }
 ```
 
-## Typescript Configuration
+## Typescript 配置
 
-File: `tsconfig.json`
+文件: `tsconfig.json`

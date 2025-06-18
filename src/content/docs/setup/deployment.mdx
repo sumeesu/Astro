@@ -1,42 +1,42 @@
 ---
-title: 'Deployment'
-description: 'Deploy your site to various platforms'
+title: '部署'
+description: '将您的站点部署到各种平台'
 order: 3
 ---
 
 import { Steps } from 'astro-pure/user'
 
-## Package Mode
+## 包模式
 
-This theme which >= v4.0.0 has integrated NPM package mode. Recommended way is remove local package file, and install the theme integration from NPM. If there's some reason you want to change the package content, you should link local package to your theme template. A `bun` method is integrated. You should:
+v4.0.0 及以上版本的主题已集成 NPM 包模式。推荐方式是移除本地包文件，从 NPM 安装主题集成。如果有特殊原因需要修改包内容，您应该将本地包链接到主题模板。已集成 `bun` 方法，您需要：
 
-1. Add environment variable `BUN_LINK_PKG=true`.
-2. Run `bun pure check` to link the package automatically.
+1. 添加环境变量 `BUN_LINK_PKG=true`
+2. 运行 `bun pure check` 自动链接包
 
-This method can also work on Deployment for other platforms like 'Vercel'. All you need is to add the environment variable to build options on your platform control settings. The build command `astro-pure check && astro check && astro build` will automatically link the package.
+此方法也可用于其他平台（如 Vercel）的部署。您只需在平台控制设置中将环境变量添加到构建选项。构建命令 `astro-pure check && astro check && astro build` 将自动链接包。
 
-## Deployment Mode
+## 部署模式
 
 import { Aside } from 'astro-pure/user'
 
 <Aside type='tip'>
-Astro had a very fantastic support for deployment. Check [Deploy your Astro Site](https://docs.astro.build/en/guides/deploy/) for more.
+Astro 对部署有极佳的支持。查看[部署您的 Astro 站点](https://docs.astro.build/en/guides/deploy/)获取更多信息。
 </Aside>
 
 ### Vercel
 
-This theme supports Vercel by default:
+本主题默认支持 Vercel：
 
 <Steps>
 
-1. Push your code to your online Git repository (GitHub, GitLab, BitBucket).
-2. [Import your project](https://vercel.com/new) into Vercel.
-3. Vercel will automatically detect Astro and configure the right settings.
-4. Your application is deployed! (e.g. [astro.vercel.app](https://astro.vercel.app/))
+1. 将代码推送到在线 Git 仓库（GitHub、GitLab、BitBucket）
+2. [导入项目](https://vercel.com/new)到 Vercel
+3. Vercel 会自动检测 Astro 并配置正确设置
+4. 您的应用已部署！（例如 [astro.vercel.app](https://astro.vercel.app/)）
 
 </Steps>
 
-And vercel also support static method:
+Vercel 也支持静态方法：
 
 ```ts title="astro.config.mjs"
 import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
@@ -49,15 +49,15 @@ export default defineConfig({
 })
 ```
 
-### Node server
+### Node 服务器
 
-If you are deploying with Node.js locally, you need to install `@astrojs/node` first:
+如果使用 Node.js 本地部署，需要先安装 `@astrojs/node`：
 
 ```shell
 bun add '@astrojs/node'
 ```
 
-Then follow the comments in `astro.config.ts` and modify like:
+然后按照 `astro.config.ts` 中的注释修改：
 
 ```ts title="astro.config.ts"
 import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
@@ -76,15 +76,15 @@ export default defineConfig({
 })
 ```
 
-### Bun server
+### Bun 服务器
 
-Bun also support static method.
+Bun 也支持静态方法。
 
-Check [@nurodev/astro-bun](https://www.npmjs.com/package/@nurodev/astro-bun) for more.
+查看 [@nurodev/astro-bun](https://www.npmjs.com/package/@nurodev/astro-bun) 获取更多信息。
 
-### Static
+### 静态部署
 
-Remove all server adapter configuration in `astro.config.ts`:
+移除 `astro.config.ts` 中所有服务器适配器配置：
 
 ```ts title="astro.config.ts"
 import vercelServerless from '@astrojs/vercel/serverless' // [!code --]
@@ -98,4 +98,4 @@ export default defineConfig({
 
 ### GitHub Pages
 
-See [Astro: Configure Astro for GitHub Pages](https://docs.astro.build/en/guides/deploy/github/).
+参见 [Astro: 为 GitHub Pages 配置 Astro](https://docs.astro.build/en/guides/deploy/github/)。
